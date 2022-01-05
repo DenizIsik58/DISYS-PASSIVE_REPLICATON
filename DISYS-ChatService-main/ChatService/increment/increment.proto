@@ -1,0 +1,27 @@
+syntax = "proto3";
+package chat;
+option go_package = "./increment";
+
+
+message IncrementRequest {
+    int64 incrementValue = 1;
+}
+
+message IncrementResponse {
+    int64 IncrementValue = 1;
+    bool isIncremented = 2;
+}
+
+message SetIdRequest{
+
+}
+
+message SetIdResponse{
+    int64 id = 1;
+}
+
+
+service IncrementService {
+    rpc Increment (IncrementRequest) returns (IncrementResponse);
+    rpc SetId(SetIdResponse) returns (SetIdResponse);
+}
